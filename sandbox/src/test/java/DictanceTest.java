@@ -9,11 +9,12 @@ public class DictanceTest {
 
         Assert.assertEquals(p1.distance(p2),27.51363298439521);
     }
+
     @Test
     public void testDistance2() {
-        Point p1 = new Point(-12, 56);
-        Point p2 = new Point(14, 0);
+        Point p1 = new Point(6, -3);
+        Point p2 = new Point(4, 5);
 
-        Assert.assertEquals(p1.distance(p2),27.51363298439521);
+        Assert.assertEquals(p1.distance(p2),8.246211251235321);
     }
 }
