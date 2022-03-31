@@ -1,9 +1,7 @@
 package ru.stqa.pft.addressbok.appmanager;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
@@ -27,13 +25,8 @@ public class ApplicationManager {
         sessionHelper.login("admin", "secret");
     }
 
-
-    public void goToHomePage() {
-        contactHelper.wd.findElement(By.linkText("home page")).click();
-    }
-
     public void stop() {
-        contactHelper.wd.quit();
+        wd.quit();
     }
 
     public GroupHelper getGroupHelper() {
