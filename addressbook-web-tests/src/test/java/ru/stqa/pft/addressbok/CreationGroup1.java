@@ -8,6 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class CreationGroup1 {
   private WebDriver wd;
 
+
   @BeforeMethod(alwaysRun = true)
   public void setUp() throws Exception {
     wd = new FirefoxDriver();
@@ -33,7 +34,6 @@ public class CreationGroup1 {
     fillGroupForm(new GroupData("test11", "test1", "test111"));
     submitGroupCreation();
     returnToGruopPage();
-    wd.findElement(By.linkText("Logout")).click();
   }
 
   private void returnToGruopPage() {
