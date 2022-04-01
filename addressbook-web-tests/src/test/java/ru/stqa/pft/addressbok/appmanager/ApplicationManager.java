@@ -2,6 +2,7 @@ package ru.stqa.pft.addressbok.appmanager;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
@@ -9,7 +10,7 @@ public class ApplicationManager {
     protected WebDriver wd;
 
     private ContactHelper contactHelper;
-    private  NavigationHelper navigationHelper;
+    private NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
     private SessionHelper sessionHelper;
 
