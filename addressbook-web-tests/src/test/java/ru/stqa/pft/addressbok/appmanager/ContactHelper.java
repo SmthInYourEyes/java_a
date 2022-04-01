@@ -4,38 +4,28 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ru.stqa.pft.addressbok.model.ContactData;
 
-public class ContactHelper {
+public class ContactHelper extends HelperBase {
 
-    protected WebDriver wd;
+
 
     public ContactHelper(WebDriver wd) {
 
-        this.wd = wd;
+        super(wd);
     }
 
     public void initContactCreation() {
-        wd.findElement(By.linkText("add new")).click();
+        click(By.linkText("add new"));
     }
 
     public void submitContactCreation() {
-        wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+        click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
     public void fillContactForm(ContactData contactData) {
-        wd.findElement(By.name("firstname")).click();
-        wd.findElement(By.name("firstname")).clear();
-        wd.findElement(By.name("firstname")).sendKeys(contactData.firstname());
-        wd.findElement(By.name("lastname")).click();
-        wd.findElement(By.name("lastname")).clear();
-        wd.findElement(By.name("lastname")).sendKeys(contactData.lastname());
-        wd.findElement(By.name("home")).click();
-        wd.findElement(By.name("home")).clear();
-        wd.findElement(By.name("home")).sendKeys(contactData.homephone());
-        wd.findElement(By.name("address")).click();
-        wd.findElement(By.name("address")).clear();
-        wd.findElement(By.name("address")).sendKeys(contactData.address());
-        wd.findElement(By.name("email")).click();
-        wd.findElement(By.name("email")).clear();
-        wd.findElement(By.name("email")).sendKeys(contactData.email());
+        type(By.name("firstname"), contactData.firstname());
+        type(By.name("lastname"), contactData.lastname());
+        type(By.name("home"), contactData.homephone());
+        type(By.name("address"), contactData.address());
+        type(By.name("email"), contactData.email());
     }
 }
