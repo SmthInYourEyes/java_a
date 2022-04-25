@@ -51,9 +51,9 @@ public class ContactHelper extends HelperBase {
         }
     }
 
-    public void createContact(ContactData contact, boolean b) {
+    public void createContact(ContactData contact) {
         initContactCreation();
-        fillContactForm(new ContactData("aaa", "bbb", "7744477755", "67mmppyy5", "ggghht@tu.com", "testR"), true);
+        fillContactForm(new ContactData("aaa", "bbb", "7744477755", "67mmppyy5", "ggghht@tu.com", "TestR"), true);
         submitContactCreation();
     }
     public boolean isThereAContact() {
