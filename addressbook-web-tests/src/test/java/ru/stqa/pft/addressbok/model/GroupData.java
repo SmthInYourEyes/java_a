@@ -16,4 +16,19 @@ public record GroupData( String name, String header, String footer) {
     public String name() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return "GroupData{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GroupData groupData = (GroupData) o;
+        return Objects.equals(name, groupData.name);
+    }
 }
