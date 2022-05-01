@@ -13,7 +13,7 @@ public class ContactHelper extends HelperBase {
         super(wd);
     }
 
-    public void initContactCreation() {
+    public void initContactCreation(ContactData contact) {
         click(By.linkText("add new"));
     }
 
@@ -53,8 +53,8 @@ public class ContactHelper extends HelperBase {
     }
 
     public void createContact(ContactData contact) {
-        initContactCreation();
-        fillContactForm(new ContactData("aaa", "bbb", "7744477755", "67mmppyy5", "ggghht@tu.com", "testR"), true);
+        initContactCreation(contact);
+        fillContactForm(new ContactData("aaa", "bbb", "7744477755", "67mmppyy5", "ggghht@tu.com", "[none]"), true);
         submitContactCreation();
     }
     public boolean isThereAContact() {
