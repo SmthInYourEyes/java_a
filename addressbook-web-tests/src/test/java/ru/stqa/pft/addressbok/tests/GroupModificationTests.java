@@ -15,18 +15,22 @@ public class GroupModificationTests extends TestBase {
 
         app.getNavigationHelper().goToGroupPage();
         if (! app.getGroupHelper().isThereAGroup()) {
-            app.getGroupHelper().createGroup(new GroupData("ooo", "test111", "aa"));{
+            app.getGroupHelper().createGroup(new GroupData(null, "ooo", "test111", "aa"));{
             }
         }
         List<GroupData> before = app.getGroupHelper().getGroupList();
         app.getGroupHelper().selectGroup(before.size() -1);
         app.getGroupHelper().initGroupModification();
-        GroupData group = new GroupData("test111", "aa", "aa");
+        GroupData group = new GroupData(before.get(before.size() -1).id(), "test111", "aa", "aa");
         app.getGroupHelper().fillGroupForm(group);
         app.getGroupHelper().submitGroupModification();
         app.getGroupHelper().returnToGroupPage();
         List<GroupData> after = app.getGroupHelper().getGroupList();
         Assert.assertEquals(after.size(), before.size());
+
+        before.remove (before.size()-1);
+        before.add(group);
+        Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
 
 
     }
