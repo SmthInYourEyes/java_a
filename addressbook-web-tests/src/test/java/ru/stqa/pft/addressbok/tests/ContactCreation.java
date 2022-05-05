@@ -10,12 +10,12 @@ import java.util.List;
 public class ContactCreation extends TestBase {
 
 
-    @Test
+    @Test(enabled = false)
     public void testCreationContact() {
         List<ContactData> before = app.getContactHelper().getContactList();
         ContactData contact = new ContactData(before.get(before.size() - 1).getId(), "bbb", "а.com", "[none]");
         app.getContactHelper().createContact(contact);
-        app.getNavigationHelper().goToHomePage();
+        app.getContactHelper().goToHomePage();
         List<ContactData> after = app.getContactHelper().getContactList();
         Assert.assertEquals(after.size(), before.size() + 1);
 
@@ -25,7 +25,7 @@ public class ContactCreation extends TestBase {
         before.sort(byId);
         after.sort(byId);
         Assert.assertEquals(before, after);
-        
+
     }
 }
 

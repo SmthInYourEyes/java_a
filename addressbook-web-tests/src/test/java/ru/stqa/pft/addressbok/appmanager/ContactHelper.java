@@ -41,6 +41,13 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//div[@id='content']/form/input[22]"));
     }
 
+    public void goToHomePage() {
+        if (isElementPresent(By.id("maintable"))){
+            return;
+        }
+        click(By.linkText("home"));
+    }
+
     public void fillContactForm(ContactData contactData, boolean creation) {
         type(By.name("firstname"), contactData.getFirstname());
         type(By.name("lastname"), contactData.getLastname());
@@ -59,6 +66,15 @@ public class ContactHelper extends HelperBase {
         fillContactForm((contact), true);
         submitContactCreation();
     }
+
+    public void modifyContact(int index,ContactData contact) {
+      selectContact(index);
+        initContactModification();
+        fillContactForm(contact,false);
+        submitContactModification();
+       goToHomePage();
+    }
+
     public boolean isThereAContact() {
         return isElementPresent(By.name("selected[]"));
     }
