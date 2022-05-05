@@ -2,9 +2,14 @@ package ru.stqa.pft.addressbok.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbok.model.ContactData;
+import ru.stqa.pft.addressbok.model.GroupData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
 
@@ -38,15 +43,13 @@ public class ContactHelper extends HelperBase {
     }
 
     public void fillContactForm(ContactData contactData, boolean creation) {
-        type(By.name("firstname"), contactData.firstname());
-        type(By.name("lastname"), contactData.lastname());
-        type(By.name("home"), contactData.homephone());
-        type(By.name("address"), contactData.address());
-        type(By.name("email"), contactData.email());
+        type(By.name("firstname"), contactData.getFirstname());
+        type(By.name("lastname"), contactData.getLastname());
+
 
 
         if (creation) {
-            new Select(wd.findElement(By.name("new_group"))).selectByValue(contactData.group());
+            new Select(wd.findElement(By.name("new_group"))).selectByValue(contactData.getGroup());
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
@@ -59,6 +62,19 @@ public class ContactHelper extends HelperBase {
     }
     public boolean isThereAContact() {
         return isElementPresent(By.name("selected[]"));
+    }
+
+    public List<ContactData> getContactList() {
+        List <ContactData> contacts = new ArrayList<ContactData>();
+        List<WebElement> elements = wd.findElements(By.xpath("//*[@id='maintable']/tbody/tr[@name = 'entry']"));
+        for (WebElement element : elements) {
+            String firstname = element.findElement(By.xpath("td[3]")).getText();
+            String lastname = element.findElement(By.xpath("td[2]")).getText();
+            ContactData contact = new ContactData(null, firstname, lastname, null);
+            contacts.add(contact);
+        }
+        return contacts;
+
     }
 }
 
