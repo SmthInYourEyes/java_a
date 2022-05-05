@@ -9,19 +9,19 @@ public class ContactData {
     private final String lastname;
     private final String group;
 
-    public ContactData(String id, String firstname, String lastname, String group) {
+    public ContactData(Integer id, String firstname, String lastname, String group) {
         this.id = Integer.MAX_VALUE;
         this.firstname = firstname;
         this.lastname = lastname;
         this.group = group;
     }
-
     public ContactData(int id, String firstname, String lastname, String group) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.group = group;
     }
+
 
     public String getGroup() {
         return group;
