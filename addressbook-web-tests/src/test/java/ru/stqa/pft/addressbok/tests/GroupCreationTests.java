@@ -3,8 +3,10 @@ package ru.stqa.pft.addressbok.tests;
 import org.testng.annotations.*;
 import ru.stqa.pft.addressbok.model.GroupData;
 import ru.stqa.pft.addressbok.model.Groups;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
+
 public class GroupCreationTests extends TestBase {
 
     @Test

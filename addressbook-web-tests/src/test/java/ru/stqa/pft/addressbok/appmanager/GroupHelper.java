@@ -7,9 +7,7 @@ import ru.stqa.pft.addressbok.model.GroupData;
 import ru.stqa.pft.addressbok.model.Groups;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class GroupHelper extends HelperBase {
 
@@ -43,7 +41,8 @@ public class GroupHelper extends HelperBase {
         wd.findElements(By.name("selected[]")).get(index).click();
     }
 
-    private void selectGroupById(int id) { wd.findElement(By.cssSelector("input[value ='" + id +"']")).click();
+    private void selectGroupById(int id) {
+        wd.findElement(By.cssSelector("input[value ='" + id + "']")).click();
 
     }
 
@@ -62,6 +61,7 @@ public class GroupHelper extends HelperBase {
         submitGroupCreation();
         returnToGroupPage();
     }
+
     public void modify(GroupData group) {
         selectGroupById(group.getId());
         initGroupModification();
@@ -79,7 +79,6 @@ public class GroupHelper extends HelperBase {
     }
 
 
-
     public boolean isThereAGroup() {
         return isElementPresent(By.name("selected[]"));
     }
@@ -89,7 +88,7 @@ public class GroupHelper extends HelperBase {
     }
 
     public List<GroupData> list() {
-        List <GroupData> groups = new ArrayList<GroupData>();
+        List<GroupData> groups = new ArrayList<GroupData>();
         List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
         for (WebElement element : elements) {
             String name = element.getText();
