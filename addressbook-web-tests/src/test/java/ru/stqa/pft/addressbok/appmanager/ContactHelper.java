@@ -144,11 +144,10 @@ public class ContactHelper extends HelperBase {
             String firstname = cells.get(1).getText();
             String lastname = cells.get(2).getText();
             String address = cells.get(3).getText();
-            String[] emails = cells.get(4).getText().split("\n");
-            String[] phones = cells.get(5).getText().split("\n");
+            String allEmails = cells.get(4).getText();
+            String allPhones = cells.get(5).getText();
             contactCache.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname).withAddress(address)
-                    .withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2])
-                    .withEmail1(emails[0]).withEmail2(emails[1]).withEmail3(emails[2]));
+                    .withAllPhones(allPhones).withAllEmails(allEmails));
         }
         return new Contacts(contactCache);
 
