@@ -1,15 +1,9 @@
 package ru.stqa.pft.addressbok.tests;
 
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.MatcherAssert;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbok.model.GroupData;
 import ru.stqa.pft.addressbok.model.Groups;
-
-import java.util.Set;
-import java.util.regex.Matcher;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -34,8 +28,8 @@ public class GroupModificationTests extends TestBase {
                 .withId(modifiedGroup.getId()).withName("test02").withHeader("aa").withFooter("bb");
         app.group().modify(group);
         Groups after = app.group().all();
-        assertEquals(after.size(), equalTo(before.size()));
-        assertThat(after, CoreMatchers.equalTo(before.without(modifiedGroup).withAdded(group)));
+        assertEquals(after.size(),(before.size()));
+        assertThat(after, equalTo(before.without(modifiedGroup).withAdded(group)));
     }
 
 
