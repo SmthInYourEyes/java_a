@@ -10,7 +10,6 @@ import ru.stqa.pft.addressbok.model.Contacts;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class ContactHelper extends HelperBase {
 
