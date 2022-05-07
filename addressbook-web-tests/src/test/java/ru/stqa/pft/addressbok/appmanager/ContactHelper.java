@@ -24,7 +24,8 @@ public class ContactHelper extends HelperBase {
         click(By.name("submit"));
     }
 
-    public void initContactModification(int id) {  wd.findElement(By.xpath("//a[@href='edit.php?id=" + id + "']")).click();
+    public void initContactModification(int id) {  wd.findElement(By.xpath(String.
+            format("//tr[.//input[@value='%s']]/td[8]/a", id))).click();
     }
 
     public void selectContact(int index) {
@@ -70,6 +71,18 @@ public class ContactHelper extends HelperBase {
         contactCache = null;
         home();
     }
+    public ContactData infoFromEditForm(ContactData contact) {
+        initContactModification(contact.getId());
+        String firstname =wd.findElement(By.name("firstname")).getAttribute("value");
+        String lastname =wd.findElement(By.name("lastname")).getAttribute("value");
+        String home =wd.findElement(By.name("home")).getAttribute("value");
+        String mobile =wd.findElement(By.name("mobile")).getAttribute("value");
+        String work =wd.findElement(By.name("work")).getAttribute("value");
+        wd.navigate().back();
+        return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname).withHomePhone(home)
+                .withWorkPhone(mobile).withMobilePhone(work);
+    }
+
 
     public void modify(ContactData contact) {
         home();
@@ -86,7 +99,7 @@ public class ContactHelper extends HelperBase {
        //selectContactById(contact.getId());
        initContactModification(contact.getId());
        deleteSelectedContacts();
-        contactCache = null;
+       contactCache = null;
        home();
     }
 
