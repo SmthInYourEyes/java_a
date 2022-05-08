@@ -1,17 +1,17 @@
 [
   {
-    "firstname": "Mich 0",
-    "lastname": "Testovich 0",
-    "address": "Street 0"
+    "firstname": "Mich0",
+    "lastname": "Test0",
+    "address": "Street0"
   },
   {
-    "firstname": "Mich 1",
-    "lastname": "Testovich 1",
-    "address": "Street 1"
+    "firstname": "Mich1",
+    "lastname": "Test1",
+    "address": "Street1"
   },
   {
-    "firstname": "Mich 2",
-    "lastname": "Testovich 2",
-    "address": "Street 2"
+    "firstname": "Mich2",
+    "lastname": "Test2",
+    "address": "Street2"
   }
 ]

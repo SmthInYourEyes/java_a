@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbok.model.ContactData;
 import ru.stqa.pft.addressbok.model.Contacts;
-import ru.stqa.pft.addressbok.model.Groups;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,11 +49,15 @@ public class ContactHelper extends HelperBase {
         }
         click(By.linkText("home"));
     }
+    public int count() {
+        return wd.findElements(By.name("selected[]")).size();
+    }
 
     public void fillContactForm(ContactData contactData, boolean creation) {
         type(By.name("firstname"), contactData.getFirstname());
         type(By.name("lastname"), contactData.getLastname());
-        attach(By.name("photo"), contactData.getPhoto());
+        type(By.name("address"), contactData.getAddress());
+      //  attach(By.name("photo"), contactData.getPhoto());
 
 
 
