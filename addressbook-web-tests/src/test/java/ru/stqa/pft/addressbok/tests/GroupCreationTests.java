@@ -1,7 +1,6 @@
 package ru.stqa.pft.addressbok.tests;
 
 import com.google.gson.Gson;
-import com.thoughtworks.xstream.XStream;
 import org.openqa.selenium.json.TypeToken;
 import org.testng.annotations.*;
 import ru.stqa.pft.addressbok.model.GroupData;
