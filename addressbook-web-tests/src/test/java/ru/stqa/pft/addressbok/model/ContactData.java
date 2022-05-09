@@ -6,6 +6,7 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 import java.io.File;
 import java.util.Objects;
+
 @XStreamAlias("contact")
 public class ContactData {
     @XStreamOmitField
@@ -16,6 +17,7 @@ public class ContactData {
     private String homePhone;
     private String mobilePhone;
     private String workPhone;
+    private String phone2;
     private String allPhones;
     private String address;
     private String email1;
@@ -85,6 +87,13 @@ public class ContactData {
 
     public ContactData withWorkPhone(String workPhone) {
         this.workPhone = workPhone;
+        return this;
+    }
+
+    public String getPhone2() {return phone2;}
+
+    public ContactData withPhone2(String phone2) {
+        this.phone2 = phone2;
         return this;
     }
 
