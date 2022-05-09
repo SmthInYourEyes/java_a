@@ -4,14 +4,21 @@ package ru.stqa.pft.addressbok.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
-
+import javax.persistence.*;
 import java.io.File;
 import java.util.Objects;
 
+
+@Entity
 @XStreamAlias("contact")
+@Table( name = "addressbook")
 public class ContactData {
+
+    @Id
+    @Column
     @XStreamOmitField
     private int id = Integer.MAX_VALUE;
+
     @Expose
     private String firstname;
     @Expose

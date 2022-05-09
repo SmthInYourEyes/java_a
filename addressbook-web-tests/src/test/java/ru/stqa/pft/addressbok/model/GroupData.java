@@ -2,13 +2,11 @@ package ru.stqa.pft.addressbok.model;
 
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import org.hibernate.annotations.Type;
+import org.hibernate.annotations.Entity;
 
-
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 @XStreamAlias("group")
